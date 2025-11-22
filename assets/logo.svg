@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="cyber-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00f3ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#bd00ff;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur" />
+      <feMerge>
+        <feMergeNode in="coloredBlur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Fundo (Background) -->
+  <rect width="512" height="512" rx="100" fill="#0a0a0a" />
+  
+  <!-- Grupo Principal com efeito Glow -->
+  <g filter="url(#glow)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    
+    <!-- === ELEMENTO CÓDIGO: Prompt de Terminal (> _) === -->
+    <!-- O sinal de maior (>) -->
+    <path d="M60 190 L100 230 L60 270" stroke="#00f3ff" stroke-width="20" opacity="0.9" />
+    <!-- O cursor (_) -->
+    <line x1="100" y1="270" x2="130" y2="270" stroke="#00f3ff" stroke-width="20" opacity="0.9">
+       <animate attributeName="opacity" values="0.9;0.2;0.9" dur="1.5s" repeatCount="indefinite" />
+    </line>
+
+    <!-- === ELEMENTO REDE/B: Letra B estilo Topologia === -->
+    <g stroke="url(#cyber-gradient)" stroke-width="24">
+        <!-- Backbone Vertical (Espinha dorsal da rede) -->
+        <path d="M180 100 L180 412" />
+        
+        <!-- Loop Superior (Conexão Roteada) -->
+        <path d="M180 100 L340 100 L420 170 L340 240 L180 240" />
+        
+        <!-- Loop Inferior (Conexão Roteada) -->
+        <path d="M180 240 L340 240 L420 326 L340 412 L180 412" />
+    </g>
+
+    <!-- Nós da Rede (Vértices/Devices) -->
+    <g fill="none" stroke="none">
+        <!-- Nós do Backbone -->
+        <circle cx="180" cy="100" r="16" fill="#00f3ff" />
+        <circle cx="180" cy="240" r="16" fill="#bd00ff" /> <!-- Hub Central -->
+        <circle cx="180" cy="412" r="16" fill="#bd00ff" />
+        
+        <!-- Nós das Pontas -->
+        <circle cx="420" cy="170" r="16" fill="#00f3ff" />
+        <circle cx="420" cy="326" r="16" fill="#bd00ff" />
+    </g>
+    
+  </g>
+</svg>
